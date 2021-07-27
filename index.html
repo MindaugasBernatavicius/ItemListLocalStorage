@@ -45,6 +45,12 @@
     </div>
 </body>
 <script>
+        if(JSON.parse(localStorage.getItem("items")) == null){
+            items = [{"id":0,"title":"Duona","count":10,"price":0.99},{"id":1,"title":"Sveitas","count":2,"price":1.55}]
+            localStorage.setItem("items", JSON.stringify(items));
+        }
+</script>
+<script>
     var form = document.getElementById("addForm");
     var itemList = document.getElementById("items");
     var filter = document.getElementById("filter");
@@ -59,6 +65,8 @@
     localStorage.setItem("last_id", id);
 
     function loadItems() {
+
+
 
         if (JSON.parse(localStorage.getItem("items")) !== null) {
             let itemsFromStorage = JSON.parse(localStorage.getItem("items"));
